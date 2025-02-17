@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface FormValues {
@@ -170,16 +171,32 @@ const Todo: any = () => {
               </p>
             )}
           </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formValues.password}
-            onChange={(e) =>
-              setFormValues({ ...formValues, password: e.target.value })
-            }
-            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
-          />
+          <div className="w-full relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              value={formValues.password}
+              onChange={(e) =>
+                setFormValues({ ...formValues, password: e.target.value })
+              }
+              className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
+            />
+            <div
+              onClick={() => setShowPassword(!showPassword)}
+              className={`cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 ${
+                !showPassword &&
+                "after:absolute after:w-[20px] after:h-0.5 after:right-[3px] after:bg-black/80 after:rounded-lg after:-rotate-45 after:origin-right after:top-[2px]"
+              }`}
+            >
+              <Image
+                src={"/assets/image/png/show-password.png"}
+                alt="show-password image"
+                width={20}
+                height={20}
+              />
+            </div>
+          </div>
         </div>
         {/* Config Password */}
         <div className="mb-4 w-full">
@@ -226,53 +243,55 @@ const Todo: any = () => {
       ) : (
         <div className="mt-8">
           <h3 className="text-xl mb-4 w-full">Submitted Data</h3>
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                  First Name
-                </th>
-                <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                  Email
-                </th>
-                <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                  Phone
-                </th>
-                <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                  Password
-                </th>
-                <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {formData.map((data, index) => (
-                <tr key={index}>
-                  <td className="border border-gray-300 px-4 text-white py-2">
-                    {data.firstName}
-                  </td>
-                  <td className="border border-gray-300 px-4 text-white py-2">
-                    {data.email}
-                  </td>
-                  <td className="border border-gray-300 px-4 text-white py-2">
-                    {data.phone}
-                  </td>
-                  <td className="border border-gray-300 px-4 text-white py-2">
-                    {data.password}
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => handleDelete(index)}
-                      className="bg-red-500 text-white px-4 py-2 rounded"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          <div className="overflow-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="border border-gray-300 px-4 text-white py-2 text-left">
+                    First Name
+                  </th>
+                  <th className="border border-gray-300 px-4 text-white py-2 text-left">
+                    Email
+                  </th>
+                  <th className="border border-gray-300 px-4 text-white py-2 text-left">
+                    Phone
+                  </th>
+                  <th className="border border-gray-300 px-4 text-white py-2 text-left">
+                    Password
+                  </th>
+                  <th className="border border-gray-300 px-4 text-white py-2 text-left">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {formData.map((data, index) => (
+                  <tr key={index}>
+                    <td className="border border-gray-300 px-4 text-white py-2">
+                      {data.firstName}
+                    </td>
+                    <td className="border border-gray-300 px-4 text-white py-2">
+                      {data.email}
+                    </td>
+                    <td className="border border-gray-300 px-4 text-white py-2">
+                      {data.phone}
+                    </td>
+                    <td className="border border-gray-300 px-4 text-white py-2">
+                      {data.password}
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(index)}
+                        className="bg-red-500 text-white px-4 py-2 rounded"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
