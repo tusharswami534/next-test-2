@@ -273,9 +273,6 @@ const Todo: any = () => {
                         Phone
                       </th>
                       <th className="border border-gray-300 px-4 text-white py-2 text-left">
-                        Password
-                      </th>
-                      <th className="border border-gray-300 px-4 text-white py-2 text-left">
                         Actions
                       </th>
                     </tr>
@@ -291,9 +288,6 @@ const Todo: any = () => {
                         </td>
                         <td className="border border-gray-300 px-4 text-white py-2">
                           {data.phone}
-                        </td>
-                        <td className="border border-gray-300 px-4 text-white py-2">
-                          {data.password}
                         </td>
                         <td>
                           <button
