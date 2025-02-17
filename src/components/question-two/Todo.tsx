@@ -111,7 +111,7 @@ const Todo: any = () => {
                   Email is not valid
                 </p>
               ) : error &&
-                formData.every((item) => item.email !== formValues.email) ? (
+                formData.some((item) => item.email !== formValues.email) ? (
                 <p className="text-red-900 font-bold leading-[30px]">
                   Email already exists
                 </p>
