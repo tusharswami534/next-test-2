@@ -46,23 +46,14 @@ const Slider = () => {
             <span className="text-blue">Development</span> with AdaptsAI
           </h2>
           {/* Slider Line  */}
-          {/* <div className="relative w-full">
-            <div className="max-w-[1130px] flex justify-between mx-auto">
-              <div className="">
-                <div className="border border-solid bg-blur-black border-light-blue size-[58px] relative rounded-[16px] mb-[18px] flex justify-center items-center">
-                  <MenuIcon />
-                </div>
-              </div>
-            </div>
-            <div className="w-full h-[1px] bg-light-gray"></div>
-          </div> */}
+
           {/* End line  */}
           <div className="overflow-hidden pt-[60px] max-w-[1440px]">
             <div className="flex w-max items-center slider-item left-0 ">
               {/* gsap content one */}
               <div className="min-w-[1440px]">
                 <div
-                  className={`flex gap-[65px] items-center container max-w-[1140px] mx-auto`}
+                  className={`flex gap-[65px] max-lg:flex-col items-center container max-w-[1140px] mx-auto`}
                 >
                   <div className="flex flex-col max-w-[461px]">
                     <h3
@@ -91,9 +82,9 @@ const Slider = () => {
                 </div>
               </div>
               {/* gsap content two */}
-              <div className="min-w-[1440px]">
+              <div className="min-w-[1440px] max-xl:max-w-[1140px]">
                 <div
-                  className={`flex gap-[65px] items-center container max-w-[1140px] mx-auto`}
+                  className={`flex gap-[65px] max-lg:flex-col items-center container max-w-[1140px] mx-auto`}
                 >
                   <div className="flex flex-col max-w-[461px]">
                     <h3
@@ -126,7 +117,7 @@ const Slider = () => {
               {/* gsap content three*/}
               <div className="min-w-[1440px]">
                 <div
-                  className={`flex gap-[65px] items-center container max-w-[1140px] mx-auto`}
+                  className={`flex gap-[65px] max-lg:flex-col items-center container max-w-[1140px] mx-auto`}
                 >
                   <div className="flex flex-col max-w-[461px]">
                     <h3
@@ -158,7 +149,7 @@ const Slider = () => {
               {/* gsap content four */}
               <div className="min-w-[1440px]">
                 <div
-                  className={`flex gap-[65px] items-center container max-w-[1140px] mx-auto`}
+                  className={`flex gap-[65px] max-lg:flex-col items-center container max-w-[1140px] mx-auto`}
                 >
                   <div className="flex flex-col max-w-[461px]">
                     <h3
