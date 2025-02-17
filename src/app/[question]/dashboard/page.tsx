@@ -6,11 +6,9 @@ import React from "react";
 const page = () => {
   const params = useParams();
   const { question } = params;
-  return (
-    <div className="text-white">
-      <Todo />
-    </div>
-  );
+  return <div className="text-white">
+    <Todo/>
+  </div>;
 };
 
 export default page;

@@ -1,77 +1,195 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
-const Todo = () => {
+interface FormValues {
+  firstName: string;
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const Todo: any = () => {
+  const form: FormValues = {
+    firstName: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [formData, setFormData] = useState<FormValues[]>([]);
+  const [formValues, setFormValues] = useState<FormValues>(form);
+  const [error, setError] = useState(false);
+
+  const EmailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  const handlerSubmit = (e: any) => {
+    e.preventDefault();
+    setError(true);
+    if (
+      formValues.firstName.length > 0 &&
+      EmailRegex.test(formValues.email) &&
+      formValues.email.length > 0 &&
+      formData.some((item: FormValues) => item.phone === formValues.phone) &&
+      formValues.phone.length >= 10 &&
+      formValues.password.length >= 6 &&
+      formValues.confirmPassword === formValues.password
+    ) {
+      setFormValues(form);
+      setError(false);
+      setFormData([...formData, formValues]);
+    }
+  };
+
+  const handleDelete = (index: number) => {
+    const updatedFormData = [...formData];
+    updatedFormData.splice(index, 1);
+    setFormData(updatedFormData);
+  };
+
   return (
     <div className="m-8 font-sans">
-      <h2 className="text-2xl mb-6">Form</h2>
+      <h2 className="text-2xl mb-6 text-center">Form</h2>
       <form
         className="max-w-md mx-auto flex justify-center items-center flex-col w-full"
         id="form"
+        onSubmit={handlerSubmit}
       >
         <div className="mb-4 w-full">
           <label htmlFor="first-name" className="block mb-2">
-            First Name
+            {error && formValues.firstName.length === 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                First name is required
+              </p>
+            ) : (
+              <p className="text-black-light leading-[30px]">First name</p>
+            )}
           </label>
           <input
             type="text"
             id="first-name"
             name="first-name"
-            placeholder="Enter your first name"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            value={formValues.firstName}
+            onChange={(e) =>
+              setFormValues({ ...formValues, firstName: e.target.value })
+            }
+            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
           />
         </div>
         <div className="mb-4 w-full">
           <label htmlFor="email" className="block  mb-2">
-            Email
+            {error && formValues.email.length === 0 ? (
+              <p className="text-red-900 leading-[30px]">Email is required</p>
+            ) : !EmailRegex.test(formValues.email) &&
+              formValues.email.length > 0 ? (
+              <p className="text-red-900 leading-[30px]">Email is not valid</p>
+            ) : formData.some(
+                (item: FormValues) => item.email === formValues.email
+              ) ? (
+              <p className="text-red-900 leading-[30px]">
+                Email already exists
+              </p>
+            ) : (
+              <p className="text-black-light leading-[30px]">Email</p>
+            )}
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            value={formValues.email}
+            onChange={(e) =>
+              setFormValues({ ...formValues, email: e.target.value })
+            }
+            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
           />
         </div>
         <div className="mb-4 w-full">
           <label htmlFor="phone" className="block mb-2">
-            Phone
+            {error && formValues.phone.length === 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                Phone number is required
+              </p>
+            ) : formValues.phone.length < 10 && formValues.phone.length > 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                Phone number is not valid
+              </p>
+            ) : (
+              <p className="text-black-light leading-[30px]">Phone</p>
+            )}
           </label>
           <input
-            type="tel"
+            type="number"
             id="phone"
             name="phone"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            value={formValues.phone}
+            onChange={(e) =>
+              setFormValues({ ...formValues, phone: e.target.value })
+            }
+            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
           />
         </div>
         <div className="mb-4 w-full">
           <label htmlFor="password" className="block mb-2">
-            Password
+            {error && formValues.password.length === 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                Password is required
+              </p>
+            ) : formValues.password.length < 6 &&
+              formValues.password.length > 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                Password must be at least 6 characters
+              </p>
+            ) : (
+              <p className="text-black-light leading-[30px]">Password</p>
+            )}
           </label>
           <input
             type="password"
             id="password"
             name="password"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            value={formValues.password}
+            onChange={(e) =>
+              setFormValues({ ...formValues, password: e.target.value })
+            }
+            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
           />
         </div>
         <div className="mb-4 w-full">
           <label htmlFor="confirm-password" className="block mb-2">
-            Confirm Password
+            {error && formValues.confirmPassword.length === 0 ? (
+              <p className="text-red-900 leading-[30px]">
+                Confirm password is required
+              </p>
+            ) : formValues.confirmPassword !== formValues.password ? (
+              <p className="text-red-900 leading-[30px]">
+                Confirm password does not match
+              </p>
+            ) : (
+              <p className="text-black-light leading-[30px]">
+                Confirm password
+              </p>
+            )}
           </label>
           <input
+            value={formValues.confirmPassword}
+            onChange={(e) =>
+              setFormValues({
+                ...formValues,
+                confirmPassword: e.target.value,
+              })
+            }
             type="password"
             id="confirm-password"
             name="confirm-password"
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded"
+            className="w-full px-3 py-2 border !text-black border-gray-300 rounded"
           />
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 bg-blue mx-auto text-white rounded"
+          className="px-4 py-2 bg-blue-500 mx-auto text-white rounded"
         >
           Submit
         </button>
@@ -99,7 +217,32 @@ const Todo = () => {
               </th>
             </tr>
           </thead>
-          <tbody>{/* Data rows will go here */}</tbody>
+          <tbody>
+            {formData.map((data, index) => (
+              <tr key={index}>
+                <td className="border border-gray-300 px-4 py-2">
+                  {data.firstName}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {data.email}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {data.phone}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {data.password}
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(index)}
+                    className="bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
