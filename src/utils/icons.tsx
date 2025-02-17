@@ -35,8 +35,8 @@ export const RobotIcon = ({ myClass }: { myClass: string }) => (
         y2="34"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.08" stop-color="#4266F6" />
-        <stop offset="0.71" stop-color="#C540E8" />
+        <stop offset="0.08" stopColor="#4266F6" />
+        <stop offset="0.71" stopColor="#C540E8" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_650_1208"
@@ -46,8 +46,8 @@ export const RobotIcon = ({ myClass }: { myClass: string }) => (
         y2="14.2574"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.08" stop-color="#4266F6" />
-        <stop offset="0.71" stop-color="#C540E8" />
+        <stop offset="0.08" stopColor="#4266F6" />
+        <stop offset="0.71" stopColor="#C540E8" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_650_1208"
@@ -57,8 +57,8 @@ export const RobotIcon = ({ myClass }: { myClass: string }) => (
         y2="14.2574"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.08" stop-color="#4266F6" />
-        <stop offset="0.71" stop-color="#C540E8" />
+        <stop offset="0.08" stopColor="#4266F6" />
+        <stop offset="0.71" stopColor="#C540E8" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_650_1208"
@@ -68,8 +68,8 @@ export const RobotIcon = ({ myClass }: { myClass: string }) => (
         y2="22.3995"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0.08" stop-color="#4266F6" />
-        <stop offset="0.71" stop-color="#C540E8" />
+        <stop offset="0.08" stopColor="#4266F6" />
+        <stop offset="0.71" stopColor="#C540E8" />
       </linearGradient>
     </defs>
   </svg>
@@ -97,8 +97,8 @@ export const MenuIcon = ({ myClass }: { myClass: string }) => (
         y2="2.57183"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DF2BFF" />
-        <stop offset="1" stop-color="#00B7FF" />
+        <stop stopColor="#DF2BFF" />
+        <stop offset="1" stopColor="#00B7FF" />
       </linearGradient>
     </defs>
   </svg>
@@ -136,8 +136,8 @@ export const ProtectedIcon = ({ myClass }: { myClass: string }) => (
         y2="7.63793"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DF2BFF" />
-        <stop offset="1" stop-color="#00B7FF" />
+        <stop stopColor="#DF2BFF" />
+        <stop offset="1" stopColor="#00B7FF" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_650_1190"
@@ -147,8 +147,8 @@ export const ProtectedIcon = ({ myClass }: { myClass: string }) => (
         y2="12.5481"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DF2BFF" />
-        <stop offset="1" stop-color="#00B7FF" />
+        <stop stopColor="#DF2BFF" />
+        <stop offset="1" stopColor="#00B7FF" />
       </linearGradient>
     </defs>
   </svg>
@@ -179,8 +179,8 @@ export const AiIcon = ({ myClass }: { myClass: string }) => (
         y2="11.5481"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DF2BFF" />
-        <stop offset="1" stop-color="#00B7FF" />
+        <stop stopColor="#DF2BFF" />
+        <stop offset="1" stopColor="#00B7FF" />
       </linearGradient>
     </defs>
   </svg>

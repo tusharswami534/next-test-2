@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { MenuIcon } from "@/utils/icons";
 gsap.registerPlugin(ScrollTrigger);
 
 const Slider = () => {
@@ -44,6 +45,18 @@ const Slider = () => {
             Transforming Secure, Modern{" "}
             <span className="text-blue">Development</span> with AdaptsAI
           </h2>
+          {/* Slider Line  */}
+          {/* <div className="relative w-full">
+            <div className="max-w-[1130px] flex justify-between mx-auto">
+              <div className="">
+                <div className="border border-solid bg-blur-black border-light-blue size-[58px] relative rounded-[16px] mb-[18px] flex justify-center items-center">
+                  <MenuIcon />
+                </div>
+              </div>
+            </div>
+            <div className="w-full h-[1px] bg-light-gray"></div>
+          </div> */}
+          {/* End line  */}
           <div className="overflow-hidden pt-[60px] max-w-[1440px]">
             <div className="flex w-max items-center slider-item left-0 ">
               {/* gsap content one */}
