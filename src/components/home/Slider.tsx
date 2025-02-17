@@ -45,7 +45,7 @@ const Slider = () => {
             <span className="text-blue">Development</span> with AdaptsAI
           </h2>
           <div className="overflow-hidden pt-[60px] max-w-[1440px]">
-            <div className="flex w-max slider-item left-0 ">
+            <div className="flex w-max items-center slider-item left-0 ">
               {/* gsap content one */}
               <div className="min-w-[1440px]">
                 <div
@@ -134,7 +134,7 @@ const Slider = () => {
                     </p>
                   </div>
                   <Image
-                    src="/assets/image/png/second-image.png"
+                    src="/assets/image/png/third-image.png"
                     alt="slider"
                     width={614}
                     height={417}
@@ -167,7 +167,7 @@ const Slider = () => {
                     </p>
                   </div>
                   <Image
-                    src="/assets/image/png/second-image.png"
+                    src="/assets/image/png/forth-image.png"
                     alt="slider"
                     width={614}
                     height={417}
