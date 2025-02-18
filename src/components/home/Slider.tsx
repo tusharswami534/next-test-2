@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { MenuIcon } from "@/utils/icons";
 gsap.registerPlugin(ScrollTrigger);
 
 const Slider = () => {
@@ -32,10 +31,10 @@ const Slider = () => {
   return (
     <>
       <div className="flex justify-center absolute top-0 left-1/2 z-20 -translate-x-1/2 items-center gap-3 py-2">
-        <Link href={"/question-1/dashboard"} className="text-white">
+        <Link href={"/test/question-1/dashboard"} className="text-white">
           Question-1
         </Link>
-        <Link href={"/question-2/dashboard"} className="text-white">
+        <Link href={"/test/question-2/dashboard"} className="text-white">
           Question-2
         </Link>
       </div>

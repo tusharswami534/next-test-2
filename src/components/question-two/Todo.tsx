@@ -57,14 +57,6 @@ const Todo: any = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-3 py-3">
-        <Link href={"/question-1/dashboard"} className="text-white">
-          Question-1
-        </Link>
-        <Link href={"/question-2/dashboard"} className="text-white">
-          Question-2
-        </Link>
-      </div>
       <div className="py-5 px-4 font-sans max-w-[1440px] overflow-hidden min-h-screen justify-center items-center flex flex-col mx-auto">
         <h2 className="text-2xl mb-6 text-white text-center">Form</h2>
         {/* Form */}
