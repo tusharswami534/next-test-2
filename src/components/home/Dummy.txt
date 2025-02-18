@@ -1,0 +1,112 @@
+useLayoutEffect(() => {
+    const initAnimations = () => {
+      let ctx = gsap.context(() => {
+        let tl = gsap.timeline();
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width:1280px) and (max-width:1599px)", () => {
+          gsap.set(".step_btn_1", {
+            color: "white",
+            boxShadow: "0px 150px 0 #E0A922 inset",
+            border: "1.01px solid #E0A922",
+          });
+          gsap.set("#line", {
+            width: "40%",
+            backgroundColor: "#E0A922",
+          });
+          ScrollTrigger.create({
+            trigger: ".journey_parent",
+            start: "-5% top",
+            end: "800% center",
+            scrub: 2,
+            pin: true,
+            animation: tl,
+          });
+          tl.to("#dream_journey_cards", {
+            x: "-330%",
+            duration: 1,
+          })
+            .fromTo(
+              ".step_btn_2",
+              {
+                boxShadow: "0px 0px 0 0 #E0A922 inset",
+              },
+              {
+                boxShadow: "150px 0px 0 0 #E0A922 inset",
+                duration: 0.1,
+                color: "white",
+                border: "1.01px solid #E0A922",
+              },
+              0.1
+            )
+            .fromTo(
+              "#line",
+              {
+                width: "40%",
+              },
+              {
+                width: "60%",
+                backgroundColor: "#E0A922",
+                duration: 0.1,
+              },
+              0.26
+            )
+            .fromTo(
+              ".step_btn_3",
+              {
+                boxShadow: "0px 0px 0 0 #E0A922 inset",
+              },
+              {
+                boxShadow: "150px 0px 0 0 #E0A922 inset",
+                duration: 0.1,
+                color: "white",
+                border: "1.01px solid #E0A922",
+              },
+              0.35
+            )
+            .fromTo(
+              "#line",
+              {
+                width: "60%",
+              },
+              {
+                width: "95%",
+                backgroundColor: "#E0A922",
+                duration: 0.1,
+              },
+              0.45
+            )
+            .fromTo(
+              ".step_btn_4",
+              {
+                boxShadow: "0px 0px 0 0 #E0A922 inset",
+              },
+              {
+                boxShadow: "150px 0px 0 0 #E0A922 inset",
+                duration: 0.1,
+                color: "white",
+                border: "1.01px solid #E0A922",
+              },
+              0.75
+            );
+        });
+      });
+
+      return ctx;
+    };
+
+    const ctx = initAnimations();
+
+    const handleResize = () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      initAnimations();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      ctx.revert();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
