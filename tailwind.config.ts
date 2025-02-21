@@ -9,11 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'light-black': "#010101",
-        'blue': "#7E68FF",
-        'light-gray': "#343434",
-        'light-blue': "#182646",
-        'blur-black': "#0B0B0B",
+        "light-black": "#010101",
+        blue: "#7E68FF",
+        "light-gray": "#343434",
+        "light-blue": "#182646",
+        "blur-black": "#0B0B0B",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],

@@ -1,6 +1,6 @@
 export const SLIDER_DATA = [
   {
-    heading: "AI Chatbots don’t create enterprse-grade",
+    heading: "AI Chatbots don’t create enterprse-grade ",
     colorHeading: "apps",
     description:
       "Bootstrap end to end application package including architecture, tests, infrastructure and deployment code leveraging AdaptsAI’s patented engine. Your apps are secure by design and by default.",
